@@ -1,0 +1,22 @@
+.list-group-item {
+  font-family: 'Abhaya Libre', serif;
+  font-size: 16px;
+}
+
+.form-control {
+  font-family: 'Abhaya Libre', serif;
+}
+
+.list-group-item:hover {
+  background-color: #a0d8f3;
+  color: #ffffff;
+}
+
+#plusButton:hover {
+  background-color: #a0d8f3;
+  color: #ffffff;
+}
+
+#submitButton, #deleteButton {
+  margin-top: 10px;
+}

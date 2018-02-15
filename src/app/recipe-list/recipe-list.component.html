@@ -1,0 +1,102 @@
+<div class="list-group col-md-3">
+  <div class="panel-body">
+    <strong>Add a Recipe</strong>
+    <a class="btn btn-default pull-right" id="plusButton" 
+       (click)="addNew()"><i class="glyphicon glyphicon-plus"></i></a>
+  </div>
+  <div class="list-group-item" 
+       (click)="onSelect(recipe)" 
+       *ngFor="let recipe of recipes"
+       [class.selected]="recipe === selectedRecipe">{{ recipe.name }}</div>
+</div> 
+<div class="col-md-9">
+  <div *ngIf="clickedNew">
+    <form #f="ngForm">
+      <div>
+        <label for="name">Recipe Name</label>
+        <input
+          #name="ngModel"
+          class="form-control"
+          ngModel
+          name="name"
+          type="text"
+          value=""
+          required>
+          <div
+          *ngIf="name.touched && !name.valid"
+          class="alert alert-danger">Your recipe requires a name.
+        </div>
+      </div>
+      <div>
+        <label for="ingredients">Ingredients</label>
+        <textarea
+          #ingredients="ngModel"
+          class="form-control"
+          ngModel
+          name="ingredients"
+          type="textarea"
+          rows="8"
+          required></textarea>
+        <div
+          *ngIf="ingredients.touched && !ingredients.valid"
+          class="alert alert-danger">Your recipe requires ingredients
+        </div>
+      </div>
+      <div>
+        <label for="instructions">Instructions</label>
+        <textarea
+          #instructions="ngModel"
+          class="form-control"
+          ngModel
+          name="instructions"
+          type="textarea"
+          rows="8"></textarea>
+      </div>
+      <button type="submit" id="submitButton" class="btn btn-primary" [disabled]="!f.valid" (click)="addNewRecipe(f.value)">Submit</button>
+    </form>
+  </div>
+  <div *ngIf="selectedRecipe && clickedRecipe">
+    <form #f="ngForm">
+      <div>
+        <label for="name">Recipe Name</label>
+        <input
+          #name="ngModel"
+          class="form-control"
+          [(ngModel)]="selectedRecipe.name"
+          name="name"
+          type="text"
+          required>
+          <div
+          *ngIf="name.touched && !name.valid"
+          class="alert alert-danger">Your recipe requires a name.
+        </div>
+      </div>
+      <div>
+        <label for="ingredients">Ingredients</label>
+        <textarea
+          #ingredients="ngModel"
+          class="form-control"
+          [(ngModel)]="selectedRecipe.ingredients"
+          name="ingredients"
+          type="textarea"
+          rows="8"
+          required></textarea>
+        <div
+          *ngIf="ingredients.touched && !ingredients.valid"
+          class="alert alert-danger">Your recipe requires ingredients
+        </div>
+      </div>
+      <div>
+        <label for="instructions">Instructions</label>
+        <textarea
+          #instructions="ngModel"
+          class="form-control"
+          [(ngModel)]="selectedRecipe.instructions"
+          name="instructions"
+          type="textarea"
+          rows="8"></textarea>
+      </div>
+      <button type="submit" id="deleteButton" class="btn btn-danger" (click)="deleteRecipe()">Delete</button>
+    </form>
+  </div>
+</div>
