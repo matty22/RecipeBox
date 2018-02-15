@@ -10,7 +10,7 @@ To add a new recipe, click the '+' button above the list of recipes on the left.
 
 This project is still in active development. Development is based on the development branch. To contribute, follow these steps:
 
-* `git clone https://github.com/matty22/vue-pomodoro.git`
+* `git clone https://github.com/matty22/RecipeBox.git`
 * `git checkout development`
 * `git checkout -b issue-label/reference-to-issue` (ex. bug/fix-grammar-error)
 
